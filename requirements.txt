@@ -1,0 +1,8 @@
+aenum==2.2.6
+argparse-addons==0.6.0
+bitstruct==8.11.1
+cantools==36.0.0
+diskcache==5.1.0
+python-can==3.3.4
+textparser==0.23.0
+wrapt==1.12.1
