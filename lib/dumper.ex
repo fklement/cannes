@@ -82,9 +82,9 @@ defmodule Cannes.Dumper do
   Parses the given candump string in the candump log format into a map.
 
   ## Example
-      iex> Cannes.Dumper.format_candump_string("(1398128227.045337) can0 133#0000000098")
+      iex> Cannes.Dumper.format_candump_string("(1398128227.045337) can0 133#0000000098\n")
       %{
-        data: <<0, 0, 0, 0, 0, 0, 0, 0>>,
+        data: <<0, 0, 0, 0, 0, 0, 0, 9>>,
         identifier: <<1, 51>>,
         interface: "can0",
         timestamp: 1398128227.045337

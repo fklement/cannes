@@ -20,7 +20,7 @@ To use Cannes in your Mix projects, first add Cannes as a dependency.
 ```elixir
 def deps do
   [
-    {:cannes, "~> 0.0.1"}
+    {:cannes, "~> 0.0.2"}
   ]
 end
 ```
