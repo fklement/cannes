@@ -1,4 +1,5 @@
 import os
+import json
 import cantools
 
 DATA_BASE_DIR = 'dbc_data'
@@ -13,3 +14,6 @@ print('Done!')
 
 def decode_message(arbitration_id, data, decode_choices, scaling):
     return db.decode_message(arbitration_id, data, decode_choices, scaling)
+
+def encode_message(frame_id, data, scaling, padding, strict):
+    return db.encode_message(frame_id, json.loads(data), scaling, padding, strict)

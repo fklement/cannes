@@ -1,7 +1,7 @@
 defmodule Cannes.MixProject do
   use Mix.Project
 
-  @version "0.0.1"
+  @version "0.0.2"
 
   def project do
     [
@@ -28,6 +28,8 @@ defmodule Cannes.MixProject do
   defp deps do
     [
       {:export, "~> 0.1.1"},
+      {:porcelain, "~> 2.0"},
+      {:jason, "~> 1.2"},
 
       # DEV-DEPS
       {:ex_doc, "~> 0.21", only: :dev, runtime: false}

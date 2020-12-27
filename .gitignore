@@ -24,3 +24,5 @@ erl_crash.dump
 hades-*.tar
 
 /.elixir_ls/
+
+/lib/python/__pycache__/
