@@ -52,11 +52,6 @@ defmodule Cannes.Dumper do
   @doc """
   Returns a stream of formatted can messages.
 
-  TODO:
-    There is currently a problem that i can't solve.
-    Therefore the ugly fix in line 32 is necessary.
-    Also see elixirforum post (https://elixirforum.com/t/problems-with-processing-fast-occurring-elements-in-stream/36462)
-
   ## Example
       iex> Cannes.Dumper.get_formatted_stream(proc)
       #Stream<[
@@ -68,7 +63,7 @@ defmodule Cannes.Dumper do
   """
   def get_formatted_stream(dumper_process) do
     get_stream(dumper_process)
-    |> Stream.reject(fn x -> countSub(x, "\n") > 1 end)
+    |> Stream.flat_map(&String.split(&1, "\n", trim: true))
     |> Stream.each(fn item ->
       format_candump_string(item)
     end)
@@ -82,7 +77,7 @@ defmodule Cannes.Dumper do
   Parses the given candump string in the candump log format into a map.
 
   ## Example
-      iex> Cannes.Dumper.format_candump_string("(1398128227.045337) can0 133#0000000098\n")
+      iex> Cannes.Dumper.format_candump_string("(1398128227.045337) can0 133#0000000098")
       %{
         data: <<0, 0, 0, 0, 0, 0, 0, 9>>,
         identifier: <<1, 51>>,
@@ -91,7 +86,7 @@ defmodule Cannes.Dumper do
       }
   """
   def format_candump_string(dump_string) do
-    message = dump_string |> String.slice(0..-3) |> String.split(" ")
+    message = dump_string |> String.split(" ")
     payload = String.split(Enum.at(message, 2), "#")
 
     %{
@@ -100,10 +95,5 @@ defmodule Cannes.Dumper do
       identifier: Enum.at(payload, 0) |> String.pad_leading(4, "0") |> Base.decode16!(),
       data: Enum.at(payload, 1) |> String.pad_leading(16, "0") |> Base.decode16!()
     }
-  end
-
-  # Currently needed for trashy hack in `get_formatted_stream()`
-  defp countSub(str, sub) do
-    length(String.split(str, sub)) - 1
   end
 end
