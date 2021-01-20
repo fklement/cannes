@@ -60,13 +60,13 @@ defmodule Cannes.Dumper do
     #Stream<[
     enum: #Function<63.104660160/2 in Stream.unfold/2>,
     funs: [#Function<51.104660160/1 in Stream.reject/2>,
-    #Function<38.104660160/1 in Stream.each/2>]
+    #Function<38.104660160/1 in Stream.map/2>]
     ]>
   """
   @spec get_formatted_stream(Porcelain.Process.t()) :: Stream.t()
   def get_formatted_stream(dumper_process) do
     get_stream(dumper_process)
-    |> Stream.each(fn item ->
+    |> Stream.map(fn item ->
       format_candump_string(item)
     end)
   end
