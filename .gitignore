@@ -26,3 +26,6 @@ hades-*.tar
 /.elixir_ls/
 
 /lib/python/__pycache__/
+.DS_Store
+
+.dccache
