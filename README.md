@@ -37,6 +37,9 @@ end
 This is a small part of my master thesis.
 In the meantime, if anyone would like to add anything, feel free to do so.
 
+The thesis with the title `A Man-In-The-Middle Approach Towards Dataflow Management for OBD-II Interfaces in Vehicles` is by now already finished.  
+If you want to know more about it, feel free to contact me.
+
 ## Release notes
 
 See the [changelog](CHANGELOG.md) for changes between versions.

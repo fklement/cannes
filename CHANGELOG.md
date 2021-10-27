@@ -1,5 +1,9 @@
 # Changelog
 
+### v0.0.5, 20 Jan 2021, Elixir `~> 1.11`
+
+- Fixed auto formatting mistake in `Cannes.Dumper.get_formatted_stream`
+
 ### v0.0.4, 19 Jan 2021, Elixir `~> 1.11`
 
 - Added ability to get real unix timestamp in can message
