@@ -103,7 +103,7 @@ defmodule Cannes.Dumper do
     timestamp =
       case unix_timestamp? do
         true -> DateTime.utc_now() |> DateTime.to_unix()
-        _ -> String.slice(Enum.at(message, 0), 1..-2) |> String.to_float()
+        _ -> String.slice(Enum.at(message, 0), 1..-2//1) |> String.to_float()
       end
 
     %{
